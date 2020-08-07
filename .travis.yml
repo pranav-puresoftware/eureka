@@ -1,5 +1,8 @@
 os: linux
 dist: xenial
+arch:
+  - amd64
+  - arm64
 language: java
 jdk:
 - openjdk8
