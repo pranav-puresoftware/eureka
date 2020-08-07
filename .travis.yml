@@ -6,7 +6,9 @@ arch:
 language: java
 jdk:
 - openjdk8
-install: ./installViaTravis.sh
+install:
+  - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then sudo apt-get install libjna-java; export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-arm64;- export PATH=/home/travis/com/sun/jna/linux-aarch64/libjnidispatch.so:$PATH;fi
+  - ./installViaTravis.sh
 script: ./buildViaTravis.sh
 env:
   global:
